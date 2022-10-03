@@ -10,7 +10,7 @@ func main() {
 	defer func() {
 		err := recover()
 		if err != nil {
-			println(err)
+			fmt.Println(err)
 		}
 	}()
 	var tickets []model.Ticket
@@ -20,10 +20,10 @@ func main() {
 	/* ======================== Crear ======================== */
 	value, errorCreate := bookingService.Create(model.Ticket{
 		Names:       "Mercho Vil",
-		Email:       "ferxxo@universalmusic.com",
-		Destination: "Medallo",
+		Email:       "personal@negocios.com",
+		Destination: "Cartagena",
 		Date:        "13:45",
-		Price:       1234,
+		Price:       324,
 	})
 	if errorCreate != nil {
 		panic(errorCreate.Error())
@@ -41,7 +41,7 @@ func main() {
 
 	/* ======================== Actualizar ======================== */
 	ticketUpdated, errorUpdate := bookingService.Update(98, model.Ticket{
-		Names:       "Andy Perez",
+		Names:       "Trenton Fogelmanis",
 		Email:       "sfallonrq@etsy.com",
 		Destination: "Colombia",
 		Date:        "13:50",
@@ -54,7 +54,7 @@ func main() {
 	fmt.Println("Ticket recién actualizado", ticketUpdatedAsJson)
 
 	/* ======================== Eliminar ======================== */
-	ticketDeletedId, errorAtDelete := bookingService.Delete(99)
+	ticketDeletedId, errorAtDelete := bookingService.Delete(21341)
 	if errorAtDelete != nil {
 		panic(errorAtDelete.Error())
 	}
